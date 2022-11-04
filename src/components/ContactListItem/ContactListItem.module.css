@@ -1,0 +1,10 @@
+.contactListItem {
+  margin-bottom: 4px;
+  list-style: none;
+}
+
+.button {
+  cursor: pointer;
+  margin-left: 20px;
+  border-radius: 4px;
+}

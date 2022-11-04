@@ -1,0 +1,15 @@
+.form {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.input {
+    margin-bottom: 10px;
+}
+.button {
+    margin-top: 10px;
+    max-width: 100px;
+    cursor: pointer;
+    border-radius: 4px;
+}
