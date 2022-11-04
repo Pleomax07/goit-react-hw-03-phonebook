@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import ContactForm from './ContactForm/ContactForm';
 import ContactFilter from './ContactFilter/ContactFilter';
 import ContactList from './ContactList/ContactList';
+
+const LS_KEY = 'contactsItem';
 export class App extends Component {
   state = {
     contacts: [
@@ -13,6 +15,19 @@ export class App extends Component {
     ],
     filter: '',
   };
+
+  componentDidMount() {
+    const savedContacts = localStorage.getItem(LS_KEY);
+    const contacts = JSON.parse(savedContacts);
+    this.setState({ contacts });
+    // console.log({ contacts });
+  }
+
+  componentDidUpdate(_, prevState) {
+    if (prevState.contacts !== this.state.contacts) {
+      localStorage.setItem(LS_KEY, JSON.stringify(this.state.contacts));
+    }
+  }
 
   formSubmitHandler = ({ name, number }) => {
     const contactName = this.state.contacts.map(contact => contact.name);
