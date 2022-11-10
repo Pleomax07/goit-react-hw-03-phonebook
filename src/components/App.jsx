@@ -17,10 +17,13 @@ export class App extends Component {
   };
 
   componentDidMount() {
-    const savedContacts = localStorage.getItem(LS_KEY);
-    const contacts = JSON.parse(savedContacts);
-    this.setState({ contacts });
-    // console.log({ contacts });
+    if(localStorage.getItem(LS_KEY)) {
+      const savedContacts = localStorage.getItem(LS_KEY);
+      const contacts = JSON.parse(savedContacts);
+      this.setState({ contacts });
+      // console.log({ contacts });
+    }
+  
   }
 
   componentDidUpdate(_, prevState) {
